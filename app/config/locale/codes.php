@@ -3,6 +3,7 @@
 return [
     'af', // Afrikaans
     'ar', // Arabic
+    'as', // Assamese
     'be', // Belarusian
     'bg', // Bulgarian
     'bh', // Bihari
@@ -13,6 +14,7 @@ return [
     'da', // Danish
     'de', // German
     'en', // English
+    'eo', // Esperanto
     'es', // Spanish
     'fa', // Farsi/Persian
     'fi', // Finnish

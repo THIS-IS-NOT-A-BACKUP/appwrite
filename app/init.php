@@ -263,6 +263,7 @@ $register->set('geodb', function () {
 Locale::$exceptions = false;
 Locale::setLanguageFromJSON('af', __DIR__.'/config/locale/translations/af.json');
 Locale::setLanguageFromJSON('ar', __DIR__.'/config/locale/translations/ar.json');
+Locale::setLanguageFromJSON('as', __DIR__.'/config/locale/translations/as.json');
 Locale::setLanguageFromJSON('be', __DIR__.'/config/locale/translations/be.json');
 Locale::setLanguageFromJSON('bg', __DIR__.'/config/locale/translations/bg.json');
 Locale::setLanguageFromJSON('bh', __DIR__.'/config/locale/translations/bh.json');
@@ -274,6 +275,7 @@ Locale::setLanguageFromJSON('da', __DIR__.'/config/locale/translations/da.json')
 Locale::setLanguageFromJSON('de', __DIR__.'/config/locale/translations/de.json');
 Locale::setLanguageFromJSON('el', __DIR__.'/config/locale/translations/el.json');
 Locale::setLanguageFromJSON('en', __DIR__.'/config/locale/translations/en.json');
+Locale::setLanguageFromJSON('eo', __DIR__.'/config/locale/translations/eo.json');
 Locale::setLanguageFromJSON('es', __DIR__.'/config/locale/translations/es.json');
 Locale::setLanguageFromJSON('fa', __DIR__.'/config/locale/translations/fa.json');
 Locale::setLanguageFromJSON('fi', __DIR__.'/config/locale/translations/fi.json');
