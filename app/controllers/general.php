@@ -12,7 +12,6 @@ use Appwrite\Utopia\Response;
 use Appwrite\Utopia\View;
 use Appwrite\Extend\Exception as AppwriteException;
 use Utopia\Config\Config;
-use Utopia\Exception as UtopiaException;
 use Utopia\Domains\Domain;
 use Appwrite\Auth\Auth;
 use Appwrite\Event\Certificate;
@@ -293,10 +292,11 @@ App::init(function (App $utopia, Request $request, Response $response, Document 
 
     $service = $route->getLabel('sdk.namespace', '');
     if (!empty($service)) {
+        $roles = Authorization::getRoles();
         if (
             array_key_exists($service, $project->getAttribute('services', []))
             && !$project->getAttribute('services', [])[$service]
-            && !Auth::isPrivilegedUser(Authorization::getRoles())
+            && !(Auth::isPrivilegedUser($roles) || Auth::isAppUser($roles))
         ) {
             throw new AppwriteException('Service is disabled', 503, AppwriteException::GENERAL_SERVICE_DISABLED);
         }
@@ -333,7 +333,7 @@ App::options(function (Request $request, Response $response) {
         ->noContent();
 }, ['request', 'response']);
 
-App::error(function (AppwriteException|UtopiaException $error, App $utopia, Request $request, Response $response, View $layout, Document $project, ?Logger $logger, array $loggerBreadcrumbs) {
+App::error(function (Throwable $error, App $utopia, Request $request, Response $response, View $layout, Document $project, ?Logger $logger, array $loggerBreadcrumbs) {
 
     $version = App::getEnv('_APP_VERSION', 'UNKNOWN');
     $route = $utopia->match($request);
