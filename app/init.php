@@ -95,7 +95,7 @@ const APP_LIMIT_WRITE_RATE_PERIOD_DEFAULT = 60; // Default maximum write rate pe
 const APP_KEY_ACCCESS = 24 * 60 * 60; // 24 hours
 const APP_CACHE_UPDATE = 24 * 60 * 60; // 24 hours
 const APP_CACHE_BUSTER = 501;
-const APP_VERSION_STABLE = '1.1.0';
+const APP_VERSION_STABLE = '1.1.1';
 const APP_DATABASE_ATTRIBUTE_EMAIL = 'email';
 const APP_DATABASE_ATTRIBUTE_ENUM = 'enum';
 const APP_DATABASE_ATTRIBUTE_IP = 'ip';
@@ -729,13 +729,6 @@ App::setResource('loggerBreadcrumbs', function () {
 });
 
 App::setResource('register', fn() => $register);
-
-App::setResource('layout', function ($locale) {
-    $layout = new View(__DIR__ . '/views/layouts/default.phtml');
-    $layout->setParam('locale', $locale);
-
-    return $layout;
-}, ['locale']);
 
 App::setResource('locale', fn() => new Locale(App::getEnv('_APP_LOCALE', 'en')));
 
